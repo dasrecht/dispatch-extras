@@ -1,2 +1,4 @@
 *.swp
 vendor/
+example/composer.lock
+example/vendor/

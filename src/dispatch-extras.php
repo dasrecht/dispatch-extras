@@ -37,10 +37,11 @@ function debug($message) {
 
   } else {
 
-    // no log file, so just output to sapi logger
-    $logger = function ($m) {
-      error_log($m, 4);
-    };
+    // no log file, so out to console or SAPI if not in cli mode
+    if (PHP_SAPI === 'cli')
+      $logger = function ($m) { echo "DEBUG: {$m}\n"; };
+    else
+      $logger = function ($m) { error_log($m, 4); };
   }
 
   $logger($message);
@@ -82,6 +83,16 @@ if (extension_loaded('apc')) {
   function cache_invalidate() {
     foreach (func_get_args() as $key)
       apc_delete($key);
+  }
+
+} else {
+
+  function cache() {
+    error(500, 'Extension [apc.so] is required by cache()');
+  }
+
+  function cache_invalidate() {
+    error(500, 'Extension [apc.so] is required by cache_invalidate()');
   }
 }
 
@@ -155,6 +166,16 @@ if (extension_loaded('mcrypt')) {
     $enc_str = mcrypt_decrypt($algo, $secret, $enc_str, $mode, $iv_code);
 
     return rtrim($enc_str, "\0");
+  }
+
+} else {
+
+  function encrypt() {
+    error(500, 'Extension [mcrypt.so] is required by encrypt()');
+  }
+
+  function decrypt() {
+    error(500, 'Extension [mcrypt.so] is required by decrypt()');
   }
 }
 ?>
