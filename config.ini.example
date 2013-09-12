@@ -1,0 +1,5 @@
+; REQUIRED. used by encrypt/decrypt
+dispatch.extras.crypt_key = some-random-string-here
+
+; OPTIONAL. if not specified, debug calls output to sapi logger
+dispatch.extras.debug_log = /tmp/app.log
