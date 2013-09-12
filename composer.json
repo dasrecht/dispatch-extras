@@ -1,0 +1,19 @@
+{
+  "name": "dispatch/dispatch-extras",
+  "description": "Additional utilities for Dispatch Micro-framework",
+  "require": {
+    "dispatch/dispatch": "2.*"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jesus A. Domingo",
+      "email": "jesus.domingo@gmail.com"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "src/dispatch-extras.php"
+    ]
+  }
+}
