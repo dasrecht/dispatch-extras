@@ -47,6 +47,22 @@ function debug($message) {
   $logger($message);
 }
 
+function _syslog($message, $component = "web", $program ="dispatch") {
+  if (($syslog_server = config('dispatch.extras.syslog_server')) == null)
+    error(500, "config('dispatch.extras.syslog_server') is not set.");
+
+  if (($syslog_port = config('dispatch.extras.syslog_port')) == null)
+    $syslog_server = 515;
+
+  $sock = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+  foreach(explode("\n", $message) as $line) {
+    $syslog_message = "<22>" . date('M d H:i:s ') . $program . ' ' . $component . ': ' . $line;
+    socket_sendto($sock, $syslog_message, strlen($syslog_message), 0, $syslog_server, $syslog_port);
+  }
+  socket_close($sock);
+
+}
+
 /**
  * Enable caching function if we have APC
  */

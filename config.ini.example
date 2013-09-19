@@ -1,5 +1,6 @@
 ; REQUIRED. used by encrypt/decrypt
 dispatch.extras.crypt_key = some-random-string-here
-
+dispatch.extras.syslog_server = your syslog server fqdn
 ; OPTIONAL. if not specified, debug calls output to sapi logger
 dispatch.extras.debug_log = /tmp/app.log
+dispatch.extras.syslog_port = 515
