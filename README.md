@@ -3,7 +3,7 @@ Dispatch Extras
 In favor of keeping the dispatch core as small as possible some rarely used functions are moved to dispatch-extras.
 
 ## Requirement
-Dispatch requires at least **PHP 5.4** to work.
+Dispatch-Extras require at least **PHP 5.4** to work.
 
 ## Installation
 To install using `composer`, have the following lines in your `composer.json` file.
@@ -25,7 +25,7 @@ your application.
 
 Note that Dispatch functions are all loaded into the global namespace.
 ## Function Catalog
-Below's the list of functions provided by Dispatch.
+Below a list of functions provided by Dispatch-Extras.
 
 ```php
 <?php
