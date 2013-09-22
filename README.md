@@ -5,6 +5,12 @@ In favor of keeping the dispatch core as small as possible some rarely used func
 ## Requirement
 Dispatch-Extras require at least **PHP 5.4** to work.
 
+In order to have caching and encryption working properly there need to be following modules loaded:
+
+  - apc.so
+  - apcu.so
+  - mcrypt.so
+
 ## Installation
 To install using `composer`, have the following lines in your `composer.json` file.
 
