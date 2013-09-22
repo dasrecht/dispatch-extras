@@ -38,7 +38,6 @@ Below a list of functions provided by Dispatch-Extras.
 
 // logging  
 function debug($message)  
-function _syslog($message, $component = "web", $program ="dispatch")  
 
 // caching  
 function cache($key, $func, $ttl = 0)  
